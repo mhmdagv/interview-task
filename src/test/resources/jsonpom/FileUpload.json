@@ -1,0 +1,15 @@
+[
+  {
+    "key": "uploadInput",
+    "value": "fileInput",
+    "type": "id",
+    "time": 15
+  },
+  {
+    "key": "fileSubmitBtn",
+    "value": "fileSubmit",
+    "type": "id",
+    "time": 15
+  }
+
+]

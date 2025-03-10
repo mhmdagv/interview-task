@@ -12,7 +12,8 @@ import config.SpringConfig;
 
 @CucumberOptions(
         features = "classpath:features",
-        glue = {"stepdefinition", "config"}
+        glue = {"stepdefinition", "config"},
+        plugin = {"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 )
 public class Runner extends AbstractTestNGCucumberTests {
 

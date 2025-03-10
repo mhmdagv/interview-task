@@ -1,0 +1,15 @@
+[
+  {
+    "key": "boxA",
+    "value": "column-a",
+    "type": "id",
+    "time": 15
+  },
+  {
+    "key": "boxB",
+    "value": "column-b",
+    "type": "id",
+    "time": 15
+  }
+
+]
