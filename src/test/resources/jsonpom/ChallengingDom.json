@@ -1,0 +1,41 @@
+[
+  {
+    "key": "successBtn",
+    "value": ".btn-success",
+    "type": "css",
+    "time": 15
+  },
+  {
+    "key": "warningBtn",
+    "value": ".btn-warning",
+    "type": "css",
+    "time": 15
+  },
+  {
+    "key": "primaryBtn",
+    "value": ".btn-primary",
+    "type": "css",
+    "time": 15
+  },
+  {
+    "key": "loremColumn",
+    "value": "//table[@class = 'table table-bordered']//tbody/tr/td[1]",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "ipsumColumn",
+    "value": "//table[@class = 'table table-bordered']//tbody/tr/td[2]",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "dolorColumn",
+    "value": "//table[@class = 'table table-bordered']//tbody/tr/td[3]",
+    "type": "xpath",
+    "time": 15
+  }
+
+
+
+]

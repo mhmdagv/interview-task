@@ -14,8 +14,12 @@ import org.testng.Assert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import static enums.ExpectedConditionType.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class BaseSteps extends BaseMethods {
+    private static final Logger logger = LogManager.getLogger(BaseSteps.class);
+
 
     public BaseSteps(ElementInfoMap elementInfoMap, DriverConfig driverConfig) {
         super(elementInfoMap, driverConfig);
@@ -101,6 +105,19 @@ public class BaseSteps extends BaseMethods {
         String actualText = findElement(key, VISIBLE).getText();
         Assert.assertTrue(actualText.contains(expectedText));
     }
+
+    /**
+     * Checks whether the text of the specified JSON element have the expected text.
+     *
+     * @param key           JSON element.
+     * @param expectedText  Text to be equal.
+     */
+    @Then("Verify that element {string} have text {string}")
+    public void verifyElementHaveText(String key, String expectedText){
+        String actualText = findElement(key, VISIBLE).getText();
+        Assert.assertEquals(actualText, expectedText);
+    }
+
 
     /**
      * Verifies that the specified element becomes invisible within a given time frame.
@@ -193,6 +210,42 @@ public class BaseSteps extends BaseMethods {
                 break;
             }
         }
+    }
+
+    @When("Log the table {string} column")
+    public void clickFromElements(String key){
+        List<WebElement> elements = findElements(key, VISIBLE);
+        for (WebElement element : elements) {
+            logger.info(element.getText());
+        }
+        }
+
+
+    /**
+     * Uploads a file to the specified element from a given file path.
+     *
+     * @param key The locator for the element to upload the file to.
+     * @param path The relative path of the file to be uploaded, starting from the root directory.
+     */
+    @When("Upload a file to the {string} element from the specified {string} path")
+    public void uploadFile(String key, String path){
+        findElement(key, VISIBLE).sendKeys(System.getProperty("user.dir") + path);
+    }
+
+
+    /**
+     * Drags an element and drops it onto another specified element.
+     *
+     * @param sourceKey  JSON element of the source element to be dragged.
+     * @param targetKey  JSON element of the target element where the source should be dropped.
+     */
+    @When("Drag the {string} element and drop it onto {string}")
+    public void dragAndDropElement(String sourceKey, String targetKey) {
+        WebElement sourceElement = findElement(sourceKey, VISIBLE);
+        WebElement targetElement = findElement(targetKey, VISIBLE);
+
+        Actions actions = new Actions(driverConfig.getDriver());
+        actions.dragAndDrop(sourceElement, targetElement).perform();
     }
 
 }
