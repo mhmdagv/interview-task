@@ -1,15 +1,18 @@
 package stepdefinition;
 
 import config.DriverConfig;
+import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.cucumber.java.en_old.Ac;
 import model.ElementInfoMap;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.interactions.WheelInput;
 import org.testng.Assert;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -118,7 +121,6 @@ public class BaseSteps extends BaseMethods {
         Assert.assertEquals(actualText, expectedText);
     }
 
-
     /**
      * Verifies that the specified element becomes invisible within a given time frame.
      *
@@ -162,7 +164,6 @@ public class BaseSteps extends BaseMethods {
     public void verifyCurrentURLContainsValue(String expectedURL) {
         String actualURL = driverConfig.getDriver().getCurrentUrl();
         Assert.assertTrue(actualURL != null && actualURL.contains(expectedURL));
-        Assert.fail("Actual URL does not match the expected. Expected: " + expectedURL + ", Actual: " + actualURL);
     }
     /**
      * Simulates pressing a specified key on the keyboard after locating a specific element.
@@ -186,7 +187,7 @@ public class BaseSteps extends BaseMethods {
      *
      * @param second The number of seconds to wait.
      */
-    @Then("Wait for {int} seconds")
+    @Then("Wait for {int} second")
     public void secondsWait(int second) {
         try {
             TimeUnit.SECONDS.sleep(second);
@@ -245,6 +246,8 @@ public class BaseSteps extends BaseMethods {
         WebElement targetElement = findElement(targetKey, VISIBLE);
 
         Actions actions = new Actions(driverConfig.getDriver());
+        actions.scrollToElement(sourceElement).perform();
+        actions.scrollFromOrigin(WheelInput.ScrollOrigin.fromElement(sourceElement), 0 , 200).perform();
         actions.dragAndDrop(sourceElement, targetElement).perform();
     }
 
