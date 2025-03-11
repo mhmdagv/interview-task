@@ -1,0 +1,77 @@
+[
+  {
+    "key": "lastNameHeader",
+    "value": "//table[@id='table1']//*[text() = 'Last Name']",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "lastNameColumn",
+    "value": "//table[@id='table1']//tr//td[1]",
+    "type": "xpath",
+    "time": 15
+  },
+
+  {
+    "key": "firstNameHeader",
+    "value": "//table[@id='table1']//*[text() = 'First Name']",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "firstNameColumn",
+    "value": "//table[@id='table1']//tr//td[2]",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "emailHeader",
+    "value": "//table[@id='table1']//*[text() = 'Email']",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "emailColumn",
+    "value": "//table[@id='table1']//tr//td[3]",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "dueHeader",
+    "value": "//table[@id='table1']//*[text() = 'Due']",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "dueColumn",
+    "value": "//table[@id='table1']//tr//td[4]",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "websiteHeader",
+    "value": "//table[@id='table1']//*[text() = 'Web Site']",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+  "key": "websiteColumn",
+  "value": "//table[@id='table1']//tr//td[5]",
+  "type": "xpath",
+  "time": 15
+  },
+  {
+    "key": "deleteBtn",
+    "value": "//*[@href='#delete'][1]",
+    "type": "xpath",
+    "time": 15
+  },
+  {
+    "key": "editBtn",
+    "value": "//*[@href='#edit'][1]",
+    "type": "xpath",
+    "time": 15
+  }
+
+]
+

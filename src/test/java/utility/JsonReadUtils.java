@@ -5,7 +5,6 @@ import com.google.gson.reflect.TypeToken;
 import exception.NoSuchJsonFileException;
 import model.ElementInfo;
 import model.ElementInfoMap;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
