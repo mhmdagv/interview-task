@@ -8,7 +8,7 @@ This project is an automated testing framework built using Cucumber, Java, TestN
 - **Spring Dependency Injection**: Manages driver instances and configurations using Spring.
 - **JSON-based POM**: Reads element locators from JSON.
 - **Selenium WebDriver**: Automates browser interactions.
-- **Allure Reporting**: Captures test execution results and screenshots on failure.
+- **Extent Reporting**: Captures test execution results and screenshots on failure.
 - **BaseSteps & Step Definitions**: Provides reusable base methods and step definitions for better test organization.
 
 ## Project Structure
@@ -60,17 +60,6 @@ Run tests with TestNG and Cucumber:
 ```sh
 mvn test
 ```
-
-### Generating Allure Report
-
-1. Execute tests:
-   ```sh
-   mvn test
-   ```
-2. Generate the Allure report:
-   ```sh
-   mvn allure:serve
-   ```
 
 ## Writing Tests
 
