@@ -1,4 +1,4 @@
-Automated Testing Framework
+#Automated Testing Framework
 
 This project is an automated testing framework built using Cucumber, Java, TestNG, and Spring. It integrates Selenium WebDriver for browser automation and uses Allure for reporting. The framework reads page elements from a JSON-based Page Object Model (POM) and utilizes dependency injection for the WebDriver.
 
