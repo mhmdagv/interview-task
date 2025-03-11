@@ -25,7 +25,6 @@ This project is an automated testing framework built using Cucumber, Java, TestN
 │   ├── jsonpom         # JSON files defining element locators
 │
 ├── pom.xml             # Project dependencies and build configuration
-├── testng.xml          # TestNG runner configuration
 ├── README.md           # Documentation
 ```
 
@@ -35,7 +34,7 @@ This project is an automated testing framework built using Cucumber, Java, TestN
 
 Ensure you have the following installed:
 
-- Java 11 or later
+- Java 17 or later
 - Maven
 - Chrome Browser
 - ChromeDriver (Ensure compatibility with Chrome version)
@@ -60,14 +59,6 @@ Run tests with TestNG and Cucumber:
 
 ```sh
 mvn test
-```
-
-### Using TestNG XML
-
-Run specific tests defined in `testng.xml`:
-
-```sh
-mvn test -DsuiteXmlFile=tesi
 ```
 
 ### Generating Allure Report
@@ -105,17 +96,8 @@ Feature: Login Functionality
 
 ## Troubleshooting
 
-### WebDriver Issues
-
-- wit
-- Check browser version compatibility with ChromeDriver.
-
 ### JSON Element Not Found
 
 - Verify that the JSON element key exists in `jsonpom`.
 - Ensure correct locator type (css, xpath, id, etc.).
-
-## License
-
-This project is licensed under the MIT License.
 
