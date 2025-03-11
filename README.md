@@ -1,23 +1,19 @@
-#Automated Testing Framework
+# Automated Testing Framework
 
 This project is an automated testing framework built using Cucumber, Java, TestNG, and Spring. It integrates Selenium WebDriver for browser automation and uses Allure for reporting. The framework reads page elements from a JSON-based Page Object Model (POM) and utilizes dependency injection for the WebDriver.
 
-Features
+## Features
 
-Cucumber & TestNG Integration: Uses TestNG as the test runner for Cucumber scenarios.
+- **Cucumber & TestNG Integration**: Uses TestNG as the test runner for Cucumber scenarios.
+- **Spring Dependency Injection**: Manages driver instances and configurations using Spring.
+- **JSON-based POM**: Reads element locators from JSON.
+- **Selenium WebDriver**: Automates browser interactions.
+- **Allure Reporting**: Captures test execution results and screenshots on failure.
+- **BaseSteps & Step Definitions**: Provides reusable base methods and step definitions for better test organization.
 
-Spring Dependency Injection: Manages driver instances and configurations using Spring.
+## Project Structure
 
-JSON-based POM: Reads element locators from JSON.
-
-Selenium WebDriver: Automates browser interactions.
-
-Allure Reporting: Captures test execution results and screenshots on failure.
-
-BaseSteps & Step Definitions: Provides reusable base methods and step definitions for better test organization.
-
-Project Structure
-
+```
 ├── src/main/java
 │   ├── config          # Configuration classes (Spring, WebDriver, Hooks)
 │   ├── model           # Element model and mapping
@@ -29,67 +25,97 @@ Project Structure
 │   ├── jsonpom         # JSON files defining element locators
 │
 ├── pom.xml             # Project dependencies and build configuration
+├── testng.xml          # TestNG runner configuration
 ├── README.md           # Documentation
+```
 
-Installation
+## Installation
 
-Prerequisites
+### Prerequisites
 
 Ensure you have the following installed:
 
-Java 17 or later
+- Java 11 or later
+- Maven
+- Chrome Browser
+- ChromeDriver (Ensure compatibility with Chrome version)
 
-Maven
+### Setup
 
-Chrome Browser
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd <repository-folder>
+   ```
+2. Install dependencies:
+   ```sh
+   mvn clean install
+   ```
 
-ChromeDriver (Ensure compatibility with Chrome version)
+## Running Tests
 
-Setup
-
-Clone the repository:
-
-git clone <repository-url>
-cd <repository-folder>
-
-Install dependencies:
-
-mvn clean install
-
-Running Tests
-
-Using Maven
+### Using Maven
 
 Run tests with TestNG and Cucumber:
 
+```sh
 mvn test
+```
 
-Generating Allure Report
+### Using TestNG XML
 
-Execute tests:
+Run specific tests defined in `testng.xml`:
 
-mvn test
+```sh
+mvn test -DsuiteXmlFile=tesi
+```
 
-Generate the Allure report:
+### Generating Allure Report
 
-mvn allure:serve
+1. Execute tests:
+   ```sh
+   mvn test
+   ```
+2. Generate the Allure report:
+   ```sh
+   mvn allure:serve
+   ```
 
-Writing Tests
+## Writing Tests
 
-Adding New Steps
+### Adding New Steps
 
-Reuse existing methods from BaseSteps.
+- Reuse existing methods from `BaseSteps`.
+- If a new step is required, create a new step definition class.
 
-If a new step is required, create a new step definition class.
+### Creating Feature Files
 
-Creating Feature Files
+Define your scenarios in `.feature` files inside `src/test/resources/features`:
 
-Define your scenarios in .feature files inside src/test/resources/features:
+```gherkin
+Feature: Login Functionality
 
-Troubleshooting
+  Scenario: User logs in successfully
+    Given Navigate to "https://example.com/login"
+    When Fill the "username" field with "testuser"
+    And Fill the "password" field with "password123"
+    And Click on the "login-button" element
+    Then Verify "Welcome" message is displayed
+```
 
-JSON Element Not Found
+## Troubleshooting
 
-Verify that the JSON element key exists in jsonpom.
+### WebDriver Issues
 
-Ensure correct locator type (css, xpath, id, etc.).
+- wit
+- Check browser version compatibility with ChromeDriver.
+
+### JSON Element Not Found
+
+- Verify that the JSON element key exists in `jsonpom`.
+- Ensure correct locator type (css, xpath, id, etc.).
+
+## License
+
+This project is licensed under the MIT License.
+
