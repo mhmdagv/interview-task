@@ -1,12 +1,10 @@
 package stepdefinition;
 
 import config.DriverConfig;
-import io.cucumber.java.bs.A;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en_old.Ac;
 import model.ElementInfoMap;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;

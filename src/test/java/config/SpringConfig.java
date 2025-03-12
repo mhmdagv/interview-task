@@ -1,7 +1,6 @@
 package config;
 
 import model.ElementInfoMap;
-import org.openqa.selenium.interactions.Actions;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
