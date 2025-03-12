@@ -10,6 +10,7 @@ This project is an automated testing framework built using Cucumber, Java, TestN
 - **Selenium WebDriver**: Automates browser interactions.
 - **Extent Reporting**: Captures test execution results and screenshots on failure.
 - **BaseSteps & Step Definitions**: Provides reusable base methods and step definitions for better test organization.
+- **Log4j Logging**: Implements Log4j for logging test execution details and debugging information.
 
 ## Project Structure
 
@@ -87,18 +88,6 @@ Feature: Login Functionality
     And Fill the "password" field with "password123"
     And Click on the "login-button" element
     Then Verify "Welcome" message is displayed
-```
-
-## Extent Reports Configuration
-
-The framework is configured to generate Extent Reports with the following settings:
-
-```properties
-extent.reporter.spark.start=true
-extent.reporter.spark.config=src/test/resources/extent-config.xml
-extent.reporter.spark.out=target/report-output/report.html
-screenshot.dir=target/report-output/screenshots/
-screenshot.rel.path=/target/report-output/screenshots/
 ```
 
 ### Viewing the Test Report
