@@ -1,6 +1,6 @@
 # Automated Testing Framework
 
-This project is an automated testing framework built using Cucumber, Java, TestNG, and Spring. It integrates Selenium WebDriver for browser automation and uses Allure for reporting. The framework reads page elements from a JSON-based Page Object Model (POM) and utilizes dependency injection for the WebDriver.
+This project is an automated testing framework built using Cucumber, Java, TestNG, and Spring. It integrates Selenium WebDriver for browser automation and uses Extent Reports for reporting. The framework reads page elements from a JSON-based Page Object Model (POM) and utilizes dependency injection for the WebDriver.
 
 ## Features
 
@@ -61,6 +61,12 @@ Run tests with TestNG and Cucumber:
 mvn test
 ```
 
+You can also filter tests using specific Cucumber tags:
+
+```sh
+mvn test -Dcucumber.filter.tags="@smoke"
+```
+
 ## Writing Tests
 
 ### Adding New Steps
@@ -81,6 +87,61 @@ Feature: Login Functionality
     And Fill the "password" field with "password123"
     And Click on the "login-button" element
     Then Verify "Welcome" message is displayed
+```
+
+## Extent Reports Configuration
+
+The framework is configured to generate Extent Reports with the following settings:
+
+```properties
+extent.reporter.spark.start=true
+extent.reporter.spark.config=src/test/resources/extent-config.xml
+extent.reporter.spark.out=target/report-output/report.html
+screenshot.dir=target/report-output/screenshots/
+screenshot.rel.path=/target/report-output/screenshots/
+```
+
+### Viewing the Test Report
+
+Once the tests are executed, the Extent Report will be generated at:
+
+```
+target/report-output/report.html
+```
+
+To view the report, open `report.html` in a web browser.
+
+Screenshots of failed test cases will be stored in:
+
+```
+target/report-output/screenshots/
+```
+
+### Extent Reports XML Configuration
+
+Below is the configuration file (`extent-config.xml`) for customizing the Extent Reports:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<extentreports>
+    <configuration>
+        <theme>standard</theme>
+        <encoding>UTF-8</encoding>
+        <protocol>https</protocol>
+        <documentTitle>Interview Task</documentTitle>
+        <reportName>Interview Task</reportName>
+        <testViewChartLocation>top</testViewChartLocation>
+        <css>
+            .step {
+            background-color: #f7f7f9;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #e0e0e0;
+            }
+        </css>
+    </configuration>
+</extentreports>
 ```
 
 ## Troubleshooting
