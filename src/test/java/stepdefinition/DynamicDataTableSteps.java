@@ -1,17 +1,13 @@
 package stepdefinition;
 
 import config.DriverConfig;
-import enums.ExpectedConditionType;
 import io.cucumber.java.en.Then;
 import model.ElementInfoMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-
 import java.util.List;
-import java.util.stream.Collectors;
-
 import static enums.ExpectedConditionType.VISIBLE;
 
 public class DynamicDataTableSteps extends BaseMethods {
